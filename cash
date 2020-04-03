@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+int get_change_cents(void);
+void subtract (int d);
+void change (int c);
+int main (void)
+{
+    int c = get_change_cents(); 
+    printf("%i\n", c);
+    int counter = 0;
+    change(c);
+}
+
+int get_change_cents(void)
+{
+    float change_dollars;
+    do
+    {
+        change_dollars = get_float("Change (Dollars):");
+    } 
+    while (change_dollars < 0);
+    int change_cents = round(change_dollars*100);
+    return change_cents;
+}
+
+void subtract (int d)
+{
+        c = c-d;
+        counter = counter + 1;
+        change(c);
+}
+
+void change (int c)
+{
+    if (c>25)
+    {
+        subtract(25);
+    }
+    else if (c>10)
+    {
+        subtract(10);
+    }
+    else if (c>5)
+    {
+        subtract(5);
+    }
+    else if (c>1)
+    {
+        subtract(1);
+    }
+    else
+    {
+        printf ("%i\n", counter);
+    }
+}
+
+
